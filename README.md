@@ -33,19 +33,22 @@ Follow the steps below to set up the project locally or on a server.
 Clone this repository to your local machine or server:
 
 ```bash
-git clone https://github.com/sakaroncloud/docker-nginx.git
-cd docker-nginx
+git clone https://github.com/sakaroncloud/docker-nginx-node-tls.git
+cd docker-nginx-node-tls
 ```
 
 #### Bind Mount
 You have to change your volume of configuration file or html file. It depends on operating system and your project directory. 
 ```bash
 For Windows:
-❌ F:\docker-with-nginx-node\nginx\config:/etc/nginx/conf.d
-✅ /f/docker-with-nginx-node/nginx/config:/etc/nginx/conf.d
+❌ F:\docker-nginx-node-tls\nginx\config:/etc/nginx/conf.d
+✅ /f/docker-nginx-node-tls/nginx/config:/etc/nginx/conf.d
 
 For Linux/macOS:
-✅ /home/docker-with-nginx-node/nginx/config:/etc/nginx/conf.d
+✅ /home/docker-nginx-node-tls/nginx/config:/etc/nginx/conf.d
+
+Or you can use absolute path.
+✅ ./nginx/config:/etc/nginx/conf.d
 ```
 
 ### Build NodeApp
@@ -61,7 +64,7 @@ docker compose up -d --build
 or
 docker compose -f docker-compose.yml up -d --build
 ```
-### Configure Host Name in your system
+### Configure Host Name in your system (Only for Local)
 ```bash
 For Windows: C:\Windows\System32\drivers\etc\hosts  
 For Linux: /etc/hosts
@@ -70,8 +73,8 @@ For Linux: /etc/hosts
 ```bash
 Add the following lines to end of hosts file
 # NginxJs Tutorial
-127.0.0.1 backend.sakaroncloud.local
-127.0.0.1 sakaroncloud.local
+127.0.0.1 subdomain.example.local
+127.0.0.1 example.local
 ```
 
 ## Final Thoughts
