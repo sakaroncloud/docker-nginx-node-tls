@@ -38,7 +38,7 @@ cd docker-nginx-node-tls
 ```
 
 #### Bind Mount
-You have to change your volume of configuration file or html file. It depends on operating system and your project directory. 
+You have to change your volume of configuration file or html file. It depends on operating system and your project directory. The below is just an example, you need to update all the required volumes for both nginx and certbot (if you want to use letsencrypt).
 ```bash
 For Windows:
 ❌ F:\docker-nginx-node-tls\nginx\config:/etc/nginx/conf.d
