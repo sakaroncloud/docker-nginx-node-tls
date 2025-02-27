@@ -63,7 +63,6 @@ docker build -t nodeapp:v1 .
 🎉 Congratulations! 🎉
 
 You've successfully set up your Nginx configuration for local environment.  
- Keep up the great work! 🚀
 
  
 ### 🔓 Configure Nginx For Local Deployment
