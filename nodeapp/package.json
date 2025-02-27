@@ -1,0 +1,29 @@
+{
+  "name": "nodeapp",
+  "version": "1.0.0",
+  "description": "This is simple nodejs app to test nginx with docker and nodejs app",
+  "author": "sakar aryal",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sakaroncloud/docker-nginx-node-tls"
+  },
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+ 
+  "keywords": [
+    "cloud",
+    "devops",
+    "nginx",
+    "nodejs"
+  ],
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9"
+  }
+}
