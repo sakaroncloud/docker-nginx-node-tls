@@ -25,27 +25,27 @@ services:
       - ./nginx/config:/etc/nginx/conf.d/:ro
       - ./nginx/html:/usr/share/nginx/html/:ro
 
-      # - ./certbot/conf:/etc/letsencrypt/:ro
-      # - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf:/etc/letsencrypt/:ro
+      - ./certbot/www:/var/www/certbot/:ro
     networks:
       - node-network
     depends_on:
       - node1
       - node2
 
-  # certbot:
-  #   image: certbot/certbot:latest
-  #   container_name: certbot
-  #   environment:
-  #     - DOMAIN1=example.com
-  #     - DOMAIN2=subdomain.example.com
-  #   entrypoint: /bin/sh /etc/scripts/init_certbot.sh
-  #   depends_on:
-  #     - nginx
-  #   volumes:
-  #     - ./certbot/conf:/etc/letsencrypt/:rw
-  #     - ./certbot/www:/var/www/certbot/:rw
-  #     - ./scripts:/etc/scripts/:rw
+  certbot:
+    image: certbot/certbot:latest
+    container_name: certbot
+    environment:
+      - DOMAIN1=example.com
+      - DOMAIN2=subdomain.example.com
+    entrypoint: /bin/sh /etc/scripts/init_certbot.sh
+    depends_on:
+      - nginx
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt/:rw
+      - ./certbot/www:/var/www/certbot/:rw
+      - ./scripts:/etc/scripts/:rw
 
 networks:
   node-network:
