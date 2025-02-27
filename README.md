@@ -59,6 +59,13 @@ Note: You can skip certbot volumes and services for local environment
 cd nodeapp
 docker build -t nodeapp:v1 .
 ```
+
+🎉 Congratulations! 🎉
+
+You've successfully set up your Nginx configuration for local environment.  
+ Keep up the great work! 🚀
+
+ 
 ### 🔓 Configure Nginx For Local Deployment
 You need to replace .com with .local in local environment.  
 ❌ example.com  
@@ -264,3 +271,20 @@ nginx -t
 
 # To reload
 nginx -s reload
+```
+### Final Steps
+ We can edit cronjob configuration file and add the following First open the file using  
+ ```bash
+ # Open cronjob file
+ cronjob -e 
+ ```
+
+```bash
+# Add the configuration to the end of the file
+0 5 1 */2 *  docker compose -f /home/ubuntu/site/docker-compose.yml up certbot
+1 5 1 */2 *  docker exec nginx nginx -s reload
+```
+🎉 Congratulations! 🎉
+
+You've successfully set up your Nginx configuration with proper SSL.
+Keep up the great work! 🚀
