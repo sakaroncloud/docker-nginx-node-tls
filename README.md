@@ -36,6 +36,21 @@ Clone this repository to your local machine or server:
 git clone https://github.com/sakaroncloud/docker-nginx-node-tls.git
 cd docker-nginx-node-tls
 ```
+### Configure Nginx (Only for Local)
+    server {
+        listen 80;
+        listen [::]:80;
+        server_name example.com www.example.com;
+        server_tokens off;
+
+        location /.well-known/acme-challenge/ {
+           root /var/www/certbot;
+        }
+
+        location / {
+            return 301 https://$host$request_uri;
+        }
+    }
 
 #### Bind Mount
 You have to change your volume of configuration file or html file. It depends on operating system and your project directory. The below is just an example, you need to update all the required volumes for both nginx and certbot (if you want to use letsencrypt).
@@ -50,6 +65,7 @@ For Linux/macOS:
 Or you can use absolute path.
 ✅ ./nginx/config:/etc/nginx/conf.d
 ```
+
 
 ### Build NodeApp
 ```bash
